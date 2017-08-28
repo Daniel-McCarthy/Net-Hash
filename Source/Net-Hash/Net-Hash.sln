@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHA-1-Hash", "SHA-1-Hash\SHA-1-Hash.csproj", "{4D45BEE3-4795-455A-BCCB-C72823E8248D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SHA-1-Hash", "SHA-1-Hash\SHA-1-Hash.csproj", "{4D45BEE3-4795-455A-BCCB-C72823E8248D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FNV-1-Hash", "FNV-1-Hash\FNV-1-Hash.csproj", "{03C1BACF-3F14-41F0-8CF5-5D10F6BD7907}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{4D45BEE3-4795-455A-BCCB-C72823E8248D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D45BEE3-4795-455A-BCCB-C72823E8248D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D45BEE3-4795-455A-BCCB-C72823E8248D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03C1BACF-3F14-41F0-8CF5-5D10F6BD7907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03C1BACF-3F14-41F0-8CF5-5D10F6BD7907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03C1BACF-3F14-41F0-8CF5-5D10F6BD7907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03C1BACF-3F14-41F0-8CF5-5D10F6BD7907}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
