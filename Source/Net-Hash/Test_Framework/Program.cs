@@ -14,5 +14,17 @@ namespace Test_Framework
         {
 
         }
+
+        static byte[] stringToByteArray(string message)
+        {
+            byte[] returnArray = new byte[message.Length];
+
+            for (int i = 0; i < message.Length; i++)
+            {
+                returnArray[i] = (byte)message[i];
+            }
+
+            return returnArray;
+        }
     }
 }
