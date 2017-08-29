@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <ApplicationIcon>Peeps.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="FNV-Hash">
+      <HintPath>..\FNV-1-Hash\bin\Debug\netcoreapp1.1\FNV-Hash.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
