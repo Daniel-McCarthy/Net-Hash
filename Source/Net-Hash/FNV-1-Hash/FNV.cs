@@ -22,5 +22,18 @@ namespace FNV_Hash
             return hash.ToString("X8");
         }
 
+        public static string fnv132Hash(byte[] message)
+        {
+            Int32 hash = fnv132Offset;
+
+            foreach(byte data in message)
+            {
+                hash *= fnv132Prime;
+                hash ^= data;
+            }
+
+            return hash.ToString("X8");
+        }
+
     }
 }
