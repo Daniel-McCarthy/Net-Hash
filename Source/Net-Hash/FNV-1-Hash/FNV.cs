@@ -2,7 +2,7 @@
 
 namespace FNV_Hash
 {
-    public class FNV
+    public static class FNV
     {
     }
 }
