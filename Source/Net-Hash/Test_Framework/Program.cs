@@ -13,6 +13,18 @@ namespace Test_Framework
         static void Main(string[] args)
         {
 
+            Console.WriteLine("Testing FNV1-Hash with string \"HelloKitty\"");
+            Console.WriteLine(FNV.fnv132Hash(stringToByteArray("HelloKitty")));
+
+            Console.WriteLine("Testing FNV1A-Hash with string \"HelloKitty\"");
+            Console.WriteLine(FNV.fnv1A32Hash(stringToByteArray("HelloKitty")));
+
+            Console.WriteLine("Testing FNV0-Hash with string \"HelloKitty\"");
+            Console.WriteLine(FNV.fnv032Hash(stringToByteArray("HelloKitty")));
+
+
+
+            Console.ReadKey();
         }
 
         static byte[] stringToByteArray(string message)
