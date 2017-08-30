@@ -33,6 +33,8 @@ namespace Test_Framework
             Console.WriteLine(CRC.crc32B(stringToByteArray("HelloKitty" + '\n')));
 
 
+            Console.WriteLine("Testing Adler-Hash with string \"HelloKitty\"");
+            Console.WriteLine(Adler.adler32(stringToByteArray("HelloKitty")));
 
             Console.ReadKey();
         }
