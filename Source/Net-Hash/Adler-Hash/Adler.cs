@@ -4,7 +4,7 @@ namespace Adler_Hash
 {
     public class Adler
     {
-        public static string adler32(byte[] message)
+        public static string adler_32Hash(byte[] message)
         {
             UInt32 a = 1;
             UInt32 b = 0;

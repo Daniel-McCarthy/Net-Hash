@@ -9,7 +9,7 @@ namespace FNV_Hash
         private const Int32 fnv132Offset = unchecked((int)0x811C9DC5);
 
 
-        public static string fnv032Hash(byte[] message)
+        public static string fnv0_32Hash(byte[] message)
         {
             Int32 hash = 0;
 
@@ -22,7 +22,7 @@ namespace FNV_Hash
             return hash.ToString("X8");
         }
 
-        public static string fnv132Hash(byte[] message)
+        public static string fnv1_32Hash(byte[] message)
         {
             Int32 hash = fnv132Offset;
 
@@ -35,7 +35,7 @@ namespace FNV_Hash
             return hash.ToString("X8");
         }
 
-        public static string fnv1A32Hash(byte[] message)
+        public static string fnv1A_32Hash(byte[] message)
         {
             Int32 hash = fnv132Offset;
 
