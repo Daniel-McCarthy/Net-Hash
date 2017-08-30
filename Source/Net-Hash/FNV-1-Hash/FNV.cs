@@ -11,7 +11,7 @@ namespace FNV_Hash
 
         public static string fnv032Hash(byte[] message)
         {
-            Int64 hash = 0;
+            Int32 hash = 0;
 
             foreach(byte data in message)
             {

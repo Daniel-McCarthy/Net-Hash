@@ -32,7 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FNV-Hash">
+    <Reference Include="FNV-Hash, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\FNV-1-Hash\bin\Debug\netcoreapp1.1\FNV-Hash.dll</HintPath>
     </Reference>
     <Reference Include="System" />

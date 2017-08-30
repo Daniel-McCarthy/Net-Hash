@@ -20,7 +20,8 @@ namespace Test_Framework
             Console.WriteLine(FNV.fnv1A32Hash(stringToByteArray("HelloKitty")));
 
             Console.WriteLine("Testing FNV0-Hash with string \"HelloKitty\"");
-            Console.WriteLine(FNV.fnv032Hash(stringToByteArray("HelloKitty")));
+            Console.WriteLine(FNV.fnv032Hash(stringToByteArray("HelloKitty" + '\n')));
+
 
 
 
