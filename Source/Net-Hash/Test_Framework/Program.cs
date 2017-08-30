@@ -24,6 +24,12 @@ namespace Test_Framework
             Console.WriteLine(FNV.fnv032Hash(stringToByteArray("HelloKitty" + '\n')));
 
 
+            Console.WriteLine("Testing CRC-Hash with string \"HelloKitty\"");
+            Console.WriteLine(CRC.crc32(stringToByteArray("HelloKitty")));
+
+            Console.WriteLine("Testing CRC-Hash with string \"HelloKitty\"");
+            Console.WriteLine(CRC.crc32B(stringToByteArray("HelloKitty" + '\n')));
+
 
 
             Console.ReadKey();
