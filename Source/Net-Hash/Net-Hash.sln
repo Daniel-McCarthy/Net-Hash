@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FNV-Hash", "FNV-1-Hash\FNV-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Framework", "Test_Framework\Test_Framework.csproj", "{A623A88A-0675-4CC4-A8F7-7A3AF24C567E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRC-Hash", "CRC-Hash\CRC-Hash.csproj", "{EE5090FB-4FC3-4FD9-A208-9248B05D5F0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using FNV_Hash;
+using CRC_Hash;
 
 namespace Test_Framework
 {
