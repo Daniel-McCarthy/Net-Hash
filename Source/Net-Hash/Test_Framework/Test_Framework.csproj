@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Adler-Hash">
+      <HintPath>..\Adler-Hash\bin\Debug\netcoreapp1.1\Adler-Hash.dll</HintPath>
+    </Reference>
     <Reference Include="CRC-Hash">
       <HintPath>..\CRC-Hash\bin\Debug\netcoreapp1.1\CRC-Hash.dll</HintPath>
     </Reference>

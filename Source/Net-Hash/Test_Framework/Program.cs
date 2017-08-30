@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using FNV_Hash;
 using CRC_Hash;
+using Adler_Hash;
+
 
 namespace Test_Framework
 {
