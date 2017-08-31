@@ -17,24 +17,25 @@ namespace Test_Framework
         {
 
             Console.WriteLine("Testing FNV1-Hash with string \"HelloKitty\"");
-            Console.WriteLine(FNV.fnv132Hash(stringToByteArray("HelloKitty")));
+            Console.WriteLine(FNV.fnv1_32Hash(stringToByteArray("HelloKitty")));
 
             Console.WriteLine("Testing FNV1A-Hash with string \"HelloKitty\"");
-            Console.WriteLine(FNV.fnv1A32Hash(stringToByteArray("HelloKitty")));
+            Console.WriteLine(FNV.fnv1A_32Hash(stringToByteArray("HelloKitty")));
 
             Console.WriteLine("Testing FNV0-Hash with string \"HelloKitty\"");
-            Console.WriteLine(FNV.fnv032Hash(stringToByteArray("HelloKitty" + '\n')));
+            Console.WriteLine(FNV.fnv0_32Hash(stringToByteArray("HelloKitty")) + '\n');
 
 
             Console.WriteLine("Testing CRC-Hash with string \"HelloKitty\"");
-            Console.WriteLine(CRC.crc32(stringToByteArray("HelloKitty")));
+            Console.WriteLine(CRC.crc_32Hash(stringToByteArray("HelloKitty")));
 
             Console.WriteLine("Testing CRC-Hash with string \"HelloKitty\"");
-            Console.WriteLine(CRC.crc32B(stringToByteArray("HelloKitty" + '\n')));
+            Console.WriteLine(CRC.crcB_32Hash(stringToByteArray("HelloKitty")) + '\n');
 
 
             Console.WriteLine("Testing Adler-Hash with string \"HelloKitty\"");
-            Console.WriteLine(Adler.adler32(stringToByteArray("HelloKitty")));
+            Console.WriteLine(Adler.adler_32Hash(stringToByteArray("HelloKitty")) + '\n');
+
 
             Console.ReadKey();
         }
