@@ -35,5 +35,38 @@ namespace MD_Hash
             return (((hash & 0x000000FF) << 24) | ((hash & 0xFF000000) >> 24) | ((hash & 0x00FF0000) >> 8) | ((hash & 0x0000FF00) << 8));
         }
 
+        public static uint rotateLeft(uint value, uint shiftAmount)
+        {
+            uint newValue = value;
+
+            for (int i = 0; i < shiftAmount; i++)
+            {
+                newValue = rotateLeft(newValue);
+            }
+
+            return newValue;
+        }
+
+        public static uint rotateRight(uint value, uint shiftAmount)
+        {
+            uint newValue = value;
+
+            for (int i = 0; i < shiftAmount; i++)
+            {
+                newValue = rotateRight(newValue);
+            }
+
+            return newValue;
+        }
+
+        public static uint rotateLeft(uint value)
+        {
+            return ((value << 1) | ((value & 0x80000000) >> 31));
+        }
+
+        public static uint rotateRight(uint value)
+        {
+            return ((value >> 1) | ((value & 0x01) << 31));
+        }
     }
 }
