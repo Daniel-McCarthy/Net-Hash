@@ -69,31 +69,32 @@ namespace MD_Hash
             }
 
 
-            uint[] intConvertedMessage = new uint[paddedMessage.Length / 4];
-
-            //Convert byte array to little endian int array
-            for (uint i = 0; i < intConvertedMessage.Length; i++)
-            {
-                uint fullValue = 0;
-
-                fullValue |= (paddedMessage[(i * 4)]);
-                fullValue |= (uint)(paddedMessage[(i * 4) + 1] << 8);
-                fullValue |= (uint)(paddedMessage[(i * 4) + 2] << 16);
-                fullValue |= (uint)(paddedMessage[(i * 4) + 3] << 24);
-
-                intConvertedMessage[i] = fullValue;
-
-            }
-
-            uint a1 = a;
-            uint b1 = b;
-            uint c1 = c;
-            uint d1 = d;
+            uint[] intConvertedMessage = new uint[16];
 
             //Loop for each set of 512 bits
-            for (int h = 0; h < ((paddedMessage.Length << 3) / 512); h++)
+            for (uint h = 0; h < ((paddedMessage.Length << 3) / 512); h++)
             {
-                
+
+                //Convert byte array to little endian int array
+                for (uint i = 0; i < intConvertedMessage.Length; i++)
+                {
+                    uint fullValue = 0;
+
+                    uint test = (i * 4) + (64 * h);
+                    fullValue |= (paddedMessage[(i * 4) + (64 * h)]);
+                    fullValue |= (uint)(paddedMessage[(i * 4) + (64 * h) + 1] << 8);
+                    fullValue |= (uint)(paddedMessage[(i * 4) + (64 * h) + 2] << 16);
+                    fullValue |= (uint)(paddedMessage[(i * 4) + (64 * h) + 3] << 24);
+
+                    intConvertedMessage[i] = fullValue;
+
+                }
+
+                uint a1 = a;
+                uint b1 = b;
+                uint c1 = c;
+                uint d1 = d;
+
                 for (uint i = 0; i < 64; i++)
                 {
                     uint f = 0, g = 0;
