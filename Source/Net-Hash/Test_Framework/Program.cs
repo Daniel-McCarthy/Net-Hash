@@ -38,9 +38,13 @@ namespace Test_Framework
             Console.WriteLine(Adler.adler_32Hash(stringToByteArray("HelloKitty")) + '\n');
 
             Console.WriteLine("Testing MD5-Hash with string \"HelloKitty\"");
-            Console.WriteLine(MD_Hash.MD.md5_128Hash(stringToByteArray("HelloKitty")) + '\n');
+            Console.WriteLine(MD_Hash.MD.md5_128Hash(stringToByteArray("HelloKitty")));
+
+            Console.WriteLine("Testing MD5-Hash with string \"HelloKitty\"");
+            Console.WriteLine(MD_Hash.MD.md5_128Hash(stringToByteArray("HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKitty")) + '\n');
 
             Console.ReadKey();
+           
         }
 
         static byte[] stringToByteArray(string message)
