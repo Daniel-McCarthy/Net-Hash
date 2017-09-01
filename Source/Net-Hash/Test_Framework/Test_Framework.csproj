@@ -32,15 +32,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Adler-Hash">
+    <Reference Include="Adler-Hash, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Adler-Hash\bin\Debug\netcoreapp1.1\Adler-Hash.dll</HintPath>
     </Reference>
-    <Reference Include="CRC-Hash">
+    <Reference Include="CRC-Hash, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CRC-Hash\bin\Debug\netcoreapp1.1\CRC-Hash.dll</HintPath>
     </Reference>
     <Reference Include="FNV-Hash, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\FNV-1-Hash\bin\Debug\netcoreapp1.1\FNV-Hash.dll</HintPath>
+    </Reference>
+    <Reference Include="MD-Hash">
+      <HintPath>..\MD-Hash\bin\Debug\netcoreapp1.1\MD-Hash.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
