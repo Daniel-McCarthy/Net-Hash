@@ -69,27 +69,19 @@ namespace MD_Hash
 
             uint[] intConvertedMessage = new uint[paddedMessage.Length / 4];
 
-            //Convert byte array to int array
+            //Convert byte array to little endian int array
             for (uint i = 0; i < intConvertedMessage.Length; i++)
             {
                 uint fullValue = 0;
 
-                fullValue |= (uint)(paddedMessage[(i * 4)] << 24);
-                fullValue |= (uint)(paddedMessage[(i * 4) + 1] << 16);
-                fullValue |= (uint)(paddedMessage[(i * 4) + 2] << 8);
-                fullValue |= (paddedMessage[(i * 4) + 3]);
+                fullValue |= (paddedMessage[(i * 4)]);
+                fullValue |= (uint)(paddedMessage[(i * 4) + 1] << 8);
+                fullValue |= (uint)(paddedMessage[(i * 4) + 2] << 16);
+                fullValue |= (uint)(paddedMessage[(i * 4) + 3] << 24);
 
                 intConvertedMessage[i] = fullValue;
 
             }
-
-            //Values in X are reverse endian to what they are in mine, lets try reversing the array values:
-            //Could optimize by reversing endian during the byte array to int array step
-            for(int j = 0; j < intConvertedMessage.Length; j++)
-            {
-                intConvertedMessage[j] = reverseEndian(intConvertedMessage[j]);
-            }
-            
 
             uint a1 = a;
             uint b1 = b;
