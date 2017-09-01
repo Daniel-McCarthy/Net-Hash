@@ -56,6 +56,7 @@ namespace MD_Hash
 
             for (int i = 0; i < 4; i++)
             {
+                //This can be simplified by writing it from right to left, would require less shifting
                 paddedMessage[sizeOffset + i] = (byte)((sizeToWrite & (mask)) >> ((4- (i+1)) * 8));
                 mask >>= 8;
             }
@@ -115,7 +116,7 @@ namespace MD_Hash
                     a1 = d1;
                     d1 = c1;
                     c1 = b1;
-                    b1 = b1 + rotateLeft(f, md5Shifts[i]);
+                    b1 = b1 + rotateLeft(f, (int)md5Shifts[i]);
                 }
               
                 a += a1;
@@ -133,38 +134,14 @@ namespace MD_Hash
             return (((hash & 0x000000FF) << 24) | ((hash & 0xFF000000) >> 24) | ((hash & 0x00FF0000) >> 8) | ((hash & 0x0000FF00) << 8));
         }
 
-        public static uint rotateLeft(uint value, uint shiftAmount)
+        public static uint rotateLeft(uint value, int amount)
         {
-            uint newValue = value;
-
-            for (int i = 0; i < shiftAmount; i++)
-            {
-                newValue = rotateLeft(newValue);
-            }
-
-            return newValue;
+            return ((value << amount) | (value >> (32 - amount)));
         }
 
-        public static uint rotateRight(uint value, uint shiftAmount)
+        public static uint rotateRight(uint value, int amount)
         {
-            uint newValue = value;
-
-            for (int i = 0; i < shiftAmount; i++)
-            {
-                newValue = rotateRight(newValue);
-            }
-
-            return newValue;
-        }
-
-        public static uint rotateLeft(uint value)
-        {
-            return ((value << 1) | ((value & 0x80000000) >> 31));
-        }
-
-        public static uint rotateRight(uint value)
-        {
-            return ((value >> 1) | ((value & 0x01) << 31));
+            return ((value >> amount) | (value << (32 - amount)));
         }
     }
 }
