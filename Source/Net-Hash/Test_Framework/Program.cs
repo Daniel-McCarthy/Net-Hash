@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 using FNV_Hash;
 using CRC_Hash;
@@ -42,6 +43,58 @@ namespace Test_Framework
 
             Console.WriteLine("Testing MD5-Hash with string \"HelloKitty\"");
             Console.WriteLine(MD.md5_128Hash(stringToByteArray("HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKitty")) + '\n');
+
+
+            /*
+             * Timing Tests
+             */ 
+
+
+            byte[] dataTest1 = stringToByteArray("HelloKitty");
+            byte[] dataTest2 = stringToByteArray("HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKitty");
+
+            Stopwatch timer;
+            
+            timer = Stopwatch.StartNew();
+            FNV.fnv1_32Hash(dataTest1);
+            timer.Stop();
+            Console.WriteLine("FNV1 Hash took : " + timer.ElapsedTicks + " ticks");
+
+            timer = Stopwatch.StartNew();
+            FNV.fnv1A_32Hash(dataTest1);
+            timer.Stop();
+            Console.WriteLine("FNV1A Hash took : " + timer.ElapsedTicks + " ticks");
+
+            timer = Stopwatch.StartNew();
+            FNV.fnv0_32Hash(dataTest1);
+            timer.Stop();
+            Console.WriteLine("FNV0 Hash took : " + timer.ElapsedTicks + " ticks");
+
+            timer = Stopwatch.StartNew();
+            CRC.crc_32Hash(dataTest1);
+            timer.Stop();
+            Console.WriteLine("CRC32 Hash took : " + timer.ElapsedTicks + " ticks");
+
+            timer = Stopwatch.StartNew();
+            CRC.crcB_32Hash(dataTest1);
+            timer.Stop();
+            Console.WriteLine("CRC32B Hash took : " + timer.ElapsedTicks + " ticks");
+
+            timer = Stopwatch.StartNew();
+            Adler.adler_32Hash(dataTest1);
+            timer.Stop();
+            Console.WriteLine("Adler32 Hash took : " + timer.ElapsedTicks + " ticks");
+
+            timer = Stopwatch.StartNew();
+            MD.md5_128Hash(dataTest1);
+            timer.Stop();
+            Console.WriteLine("MD5 Hash took : " + timer.ElapsedTicks + " ticks");
+
+            timer = Stopwatch.StartNew();
+            MD.md5_128Hash(dataTest2);
+            timer.Stop();
+            Console.WriteLine("MD5 Hash Test2 took : " + timer.ElapsedTicks + " ticks");
+
 
             Console.ReadKey();
            
