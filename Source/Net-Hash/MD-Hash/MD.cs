@@ -29,5 +29,11 @@ namespace MD_Hash
         };
 
 
+
+        static UInt32 reverseEndian(UInt32 hash)
+        {
+            return (((hash & 0x000000FF) << 24) | ((hash & 0xFF000000) >> 24) | ((hash & 0x00FF0000) >> 8) | ((hash & 0x0000FF00) << 8));
+        }
+
     }
 }
