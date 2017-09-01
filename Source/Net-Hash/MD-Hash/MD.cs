@@ -56,13 +56,15 @@ namespace MD_Hash
             paddedMessage[oldSize] = 0x80;
 
             //Write message size to padded message
-            uint sizeToWrite = (uint)(message.Length * 8);
+            uint sizeToWrite = reverseEndian((uint)(message.Length * 8));
             uint sizeOffset = (uint)(paddedMessage.Length - 8);
-            uint mask = 0xF000;
+            uint mask = 0xFF000000;
 
             for (int i = 0; i < 4; i++)
             {
-                paddedMessage[sizeOffset + i - 1] = (byte)((sizeToWrite & (mask)) >> ((i - 1) * 8));
+                uint test = sizeToWrite & mask;
+                uint test2 = (uint)((4 - (i + 1)) * 8);
+                paddedMessage[sizeOffset + i] = (byte)((sizeToWrite & (mask)) >> ((4- (i+1)) * 8));
                 mask >>= 8;
             }
 
