@@ -29,6 +29,118 @@ namespace MD_Hash
         };
 
 
+        public static string md5_128Hash(byte[] message)
+        {
+            uint a = 0x67452301;
+            uint b = 0xefcdab89;
+            uint c = 0x98badcfe;
+            uint d = 0x10325476;
+
+            int oldSize = message.Length;
+            int numNonPaddingCharacters = (message.Length + 8 + 1); //Message Length + 1 to account for 0x80 end character, and + 8 to account for 64 bit file size
+            int paddingAmount = 0;
+
+            //Pad message to be divisible by 512 bits/64 bytes
+            while(((numNonPaddingCharacters + paddingAmount) % 64) != 0)
+            {
+                paddingAmount++;
+            }
+
+            byte[] paddedMessage = new byte[numNonPaddingCharacters + paddingAmount];
+
+            for(int i = 0; i < message.Length; i++)
+            {
+                paddedMessage[i] = message[i];
+            }
+
+            paddedMessage[oldSize] = 0x80;
+
+            //Write message size to padded message
+            uint sizeToWrite = (uint)(message.Length * 8);
+            uint sizeOffset = (uint)(paddedMessage.Length - 8);
+            uint mask = 0xF000;
+
+            for (int i = 0; i < 4; i++)
+            {
+                paddedMessage[sizeOffset + i - 1] = (byte)((sizeToWrite & (mask)) >> ((i - 1) * 8));
+                mask >>= 8;
+            }
+
+
+            uint[] intConvertedMessage = new uint[paddedMessage.Length / 4];
+
+            //Convert byte array to int array
+            for (uint i = 0; i < intConvertedMessage.Length; i++)
+            {
+                uint fullValue = 0;
+
+                fullValue |= (uint)(paddedMessage[(i * 4)] << 24);
+                fullValue |= (uint)(paddedMessage[(i * 4) + 1] << 16);
+                fullValue |= (uint)(paddedMessage[(i * 4) + 2] << 8);
+                fullValue |= (paddedMessage[(i * 4) + 3]);
+
+                intConvertedMessage[i] = fullValue;
+
+            }
+
+            //Values in X are reverse endian to what they are in mine, lets try reversing the array values:
+            //Could optimize by reversing endian during the byte array to int array step
+            for(int j = 0; j < intConvertedMessage.Length; j++)
+            {
+                intConvertedMessage[j] = reverseEndian(intConvertedMessage[j]);
+            }
+            
+
+            uint a1 = a;
+            uint b1 = b;
+            uint c1 = c;
+            uint d1 = d;
+
+            //Loop for each set of 512 bits
+            for (int h = 0; h < ((paddedMessage.Length << 3) / 512); h++)
+            {
+                
+                for (uint i = 0; i < 64; i++)
+                {
+                    uint f = 0, g = 0;
+
+                    if ((i >= 0) && (i <= 15))
+                    {
+                        f = ((b1 & c1) | (~b1 & d1));
+                        g = i;
+                    }
+                    else if ((i >= 16) && (i <= 31))
+                    {
+                        f = ((d1 & b1) | (~d1 & c1));
+                        g = ((5 * i) + 1) & 0x0F;
+                    }
+                    else if ((i >= 32) && (i <= 47))
+                    {
+                        f = b1 ^ c1 ^ d1;
+                        g = ((3 * i) + 5) & 0x0F;
+                    }
+                    else if ((i >= 48) && (i <= 63))
+                    {
+                        f = c1 ^ (b1 | ~d1);
+                        g = (7 * i) & 0x0F;
+                    }
+
+                    f = f + a1 + md5Table[i] + intConvertedMessage[g];
+                    a1 = d1;
+                    d1 = c1;
+                    c1 = b1;
+                    b1 = b1 + rotateLeft(f, md5Shifts[i]);
+                }
+              
+                a += a1;
+                b += b1;
+                c += c1;
+                d += d1;
+            }
+
+            return ((reverseEndian(a)).ToString("X8") + (reverseEndian(b)).ToString("X8") + (reverseEndian(c)).ToString("X8") + (reverseEndian(d)).ToString("X8"));
+
+        }
 
         static UInt32 reverseEndian(UInt32 hash)
         {
