@@ -38,13 +38,7 @@ namespace MD_Hash
 
             int oldSize = message.Length;
             int numNonPaddingCharacters = (message.Length + 8 + 1); //Message Length + 1 to account for 0x80 end character, and + 8 to account for 64 bit file size
-            int paddingAmount = 0;
-
-            //Pad message to be divisible by 512 bits/64 bytes
-            while(((numNonPaddingCharacters + paddingAmount) % 64) != 0)
-            {
-                paddingAmount++;
-            }
+            int paddingAmount = (64 - ((numNonPaddingCharacters) % 64));
 
             byte[] paddedMessage = new byte[numNonPaddingCharacters + paddingAmount];
 
