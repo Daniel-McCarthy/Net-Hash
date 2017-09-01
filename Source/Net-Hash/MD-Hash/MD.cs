@@ -62,8 +62,6 @@ namespace MD_Hash
 
             for (int i = 0; i < 4; i++)
             {
-                uint test = sizeToWrite & mask;
-                uint test2 = (uint)((4 - (i + 1)) * 8);
                 paddedMessage[sizeOffset + i] = (byte)((sizeToWrite & (mask)) >> ((4- (i+1)) * 8));
                 mask >>= 8;
             }
@@ -80,7 +78,6 @@ namespace MD_Hash
                 {
                     uint fullValue = 0;
 
-                    uint test = (i * 4) + (64 * h);
                     fullValue |= (paddedMessage[(i * 4) + (64 * h)]);
                     fullValue |= (uint)(paddedMessage[(i * 4) + (64 * h) + 1] << 8);
                     fullValue |= (uint)(paddedMessage[(i * 4) + (64 * h) + 2] << 16);
