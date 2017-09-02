@@ -64,6 +64,79 @@ namespace MD_Hash
             0x6FA87E4F, 0xFE2CE6E0, 0xA3014314, 0x4E0811A1, 0xF7537E82, 0xBD3AF235, 0x2AD7D2BB, 0xEB86D391
         };
 
+        public static string md2_128Hash(byte[] message)
+        {
+            byte[] hashState = new byte[48];
+            byte[] checksum = new byte[16];
+
+            //There must be padding, even if already divisible by 16.
+            //Depending on the size of the message there will be between 1-16 bytes of padding.
+            byte paddingAmount = (byte)(((message.Length % 16) == 0) ? 16 : (16 - ((message.Length) % 16)));
+
+            byte[] paddedMessage = new byte[message.Length + paddingAmount];
+
+            for(int i = 0; i < paddedMessage.Length; i++)
+            {
+                if(i < message.Length)
+                {
+                    paddedMessage[i] = message[i];
+                }
+                else
+                {
+                    //The padding data must be the number of padded bytes
+                    paddedMessage[i] = paddingAmount;
+                }
+            }
+
+            //Calculate hash with padded message
+            calculateMD2(paddedMessage);
+
+            //Recalculate with generated checksum
+            calculateMD2(checksum);
+
+            //Assemble Hash String from State
+            string hashString = "";
+            for (int i = 0; i < 16; i++)
+            {
+                hashString += hashState[i].ToString("X2");
+            }
+
+            return hashString;
+
+
+            void calculateMD2(byte[] input)
+            {
+                for (int i = 0; i < 16; i++)
+                {
+                    hashState[16 + i] = input[i];
+                    hashState[32 + i] = (byte)(hashState[16 + i] ^ hashState[i]);
+                }
+
+                byte t = 0;
+
+                for (byte i = 0; i < 18; i++)
+                {
+                    for (int j = 0; j < 48; j++)
+                    {
+                        hashState[j] ^= md2Table[t];
+                        t = hashState[j];
+                    }
+
+                    t += i;
+                }
+
+                t = checksum[15];
+
+                for (int i = 0; i < 16; i++)
+                {
+                    checksum[i] ^= md2Table[(input[i] ^ t)];
+                    t = checksum[i];
+                }
+
+            }
+
+        }
+
 
         public static string md5_128Hash(byte[] message)
         {
