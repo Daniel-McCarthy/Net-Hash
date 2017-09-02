@@ -47,13 +47,14 @@ namespace Test_Framework
             Console.WriteLine(MD.md5_128Hash(stringToByteArray("HelloKitty")));
 
             Console.WriteLine("Testing MD5-Hash with string \"HelloKitty\"");
-            Console.WriteLine(MD.md5_128Hash(stringToByteArray("HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKitty")) + '\n');
+            Console.WriteLine(MD.md5_128Hash(stringToByteArray("HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKitty")));
 
+            Console.WriteLine("Testing MD5-Hash with string \"\"");
+            Console.WriteLine(MD.md5_128Hash(stringToByteArray("")) + '\n');
 
             /*
              * Timing Tests
-             */ 
-
+             */
 
             byte[] dataTest1 = stringToByteArray("HelloKitty");
             byte[] dataTest2 = stringToByteArray("HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKitty");
