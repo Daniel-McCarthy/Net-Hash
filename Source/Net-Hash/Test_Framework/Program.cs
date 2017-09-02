@@ -38,6 +38,11 @@ namespace Test_Framework
             Console.WriteLine("Testing Adler-Hash with string \"HelloKitty\"");
             Console.WriteLine(Adler.adler_32Hash(stringToByteArray("HelloKitty")) + '\n');
 
+
+            Console.WriteLine("Testing MD2-Hash with string \"HelloKitty\"");
+            Console.WriteLine(MD.md2_128Hash(stringToByteArray("HelloKitty")) + '\n');
+
+
             Console.WriteLine("Testing MD5-Hash with string \"HelloKitty\"");
             Console.WriteLine(MD.md5_128Hash(stringToByteArray("HelloKitty")));
 
