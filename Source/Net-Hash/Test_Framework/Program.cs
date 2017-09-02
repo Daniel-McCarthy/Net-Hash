@@ -92,6 +92,11 @@ namespace Test_Framework
             Console.WriteLine("Adler32 Hash took : " + timer.ElapsedTicks + " ticks");
 
             timer = Stopwatch.StartNew();
+            MD.md2_128Hash(dataTest1);
+            timer.Stop();
+            Console.WriteLine("MD2 Hash took : " + timer.ElapsedTicks + " ticks");
+
+            timer = Stopwatch.StartNew();
             MD.md5_128Hash(dataTest1);
             timer.Stop();
             Console.WriteLine("MD5 Hash took : " + timer.ElapsedTicks + " ticks");
