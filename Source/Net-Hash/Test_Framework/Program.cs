@@ -46,6 +46,10 @@ namespace Test_Framework
             Console.WriteLine(MD.md2_128Hash(stringToByteArray("HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKitty")) +'\n');
 
 
+            Console.WriteLine("Testing MD4-Hash with string \"HelloKitty\"");
+            Console.WriteLine(MD.md4_128Hash(stringToByteArray("HelloKitty")) + '\n');
+
+
             Console.WriteLine("Testing MD5-Hash with string \"HelloKitty\"");
             Console.WriteLine(MD.md5_128Hash(stringToByteArray("HelloKitty")));
 
