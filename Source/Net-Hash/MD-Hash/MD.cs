@@ -76,13 +76,19 @@ namespace MD_Hash
 
             byte[] paddedMessage = new byte[message.Length + paddingAmount];
 
-            for(int i = 0; i < paddedMessage.Length; i++)
+            //Copy message into padded message
+            for(int i = 0; i < message.Length; i++)
             {
-                if(i < message.Length)
-                {
-                    paddedMessage[i] = message[i];
-                }
-                else
+                paddedMessage[i] = message[i];
+            }
+
+            //Write padding data into padded message (Data is the size of the original message)
+            for(int i = message.Length; i < paddedMessage.Length; i++)
+            {
+                paddedMessage[i] = paddingAmount;
+            }
+
+
 
 
             int passes = 0;
