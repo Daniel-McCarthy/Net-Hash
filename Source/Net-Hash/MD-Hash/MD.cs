@@ -107,13 +107,13 @@ namespace MD_Hash
             byte[] paddedMessage = new byte[message.Length + paddingAmount];
 
             //Copy message into padded message
-            for(int i = 0; i < message.Length; i++)
+            for (int i = 0; i < message.Length; i++)
             {
                 paddedMessage[i] = message[i];
             }
 
             //Write padding data into padded message (Data is the size of the original message)
-            for(int i = message.Length; i < paddedMessage.Length; i++)
+            for (int i = message.Length; i < paddedMessage.Length; i++)
             {
                 paddedMessage[i] = paddingAmount;
             }
@@ -128,9 +128,9 @@ namespace MD_Hash
             for (int i = 0; i < messageChunks; i++)
             {
                 //Copy 16 byte chunk into buffer
-                for(int j = 0; j < 16; j++)
+                for (int j = 0; j < 16; j++)
                 {
-                    buffer[j] = paddedMessage[j + (passes*16)];
+                    buffer[j] = paddedMessage[j + (passes * 16)];
                 }
 
                 //Calculate checksum from buffer
