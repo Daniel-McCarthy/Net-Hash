@@ -45,9 +45,21 @@ namespace Test_Framework
             Console.WriteLine("Testing MD2-Hash with string \"HelloKitty\"x21");
             Console.WriteLine(MD.md2_128Hash(stringToByteArray("HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKitty")) +'\n');
 
-
             Console.WriteLine("Testing MD4-Hash with string \"HelloKitty\"");
-            Console.WriteLine(MD.md4_128Hash(stringToByteArray("HelloKitty")) + '\n');
+            Console.WriteLine(MD.md4_128Hash(stringToByteArray("HelloKitty")));
+
+
+            /*
+             * Tests MD4 with string length 64-9
+             */
+            Console.WriteLine("Testing MD4-Hash with string \"HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHello\"");
+            Console.WriteLine(MD.md4_128Hash(stringToByteArray("HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHello")));
+
+            /*
+             * Tests MD4 with string length 63
+             */
+            Console.WriteLine("Testing MD4-Hash with string \"HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHel\"");
+            Console.WriteLine(MD.md4_128Hash(stringToByteArray("HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHel")) + '\n');
 
 
             Console.WriteLine("Testing MD5-Hash with string \"HelloKitty\"");
