@@ -185,6 +185,103 @@ namespace MD_Hash
 
         }
 
+        public static string md4_128Hash(byte[] message)
+        {
+            uint a = 0x67452301;
+            uint b = 0xEFCDAB89;
+            uint c = 0x98BADCFE;
+            uint d = 0x10325476;
+
+            int oldSize = message.Length;
+            int numNonPaddingCharacters = (message.Length + 8 + 1); //Message Length + 1 to account for 0x80 end character, and + 8 to account for 64 bit file size
+            int paddingAmount = (64 - ((numNonPaddingCharacters) % 64));
+
+            byte[] paddedMessage = new byte[numNonPaddingCharacters + paddingAmount];
+
+            for (int i = 0; i < message.Length; i++)
+            {
+                paddedMessage[i] = message[i];
+            }
+
+            paddedMessage[oldSize] = 0x80;
+
+            //Write message size to padded message
+            uint sizeToWrite = reverseEndian((uint)(message.Length * 8));
+            uint sizeOffset = (uint)(paddedMessage.Length - 8);
+            uint mask = 0xFF000000;
+
+            for (int i = 0; i < 4; i++)
+            {
+                //This can be simplified by writing it from right to left, would require less shifting
+                paddedMessage[sizeOffset + i] = (byte)((sizeToWrite & (mask)) >> ((4 - (i + 1)) * 8));
+                mask >>= 8;
+            }
+
+
+            uint[] intConvertedMessage = new uint[16];
+
+            //Loop for each set of 512 bits
+            for (uint h = 0; h < ((paddedMessage.Length << 3) / 512); h++)
+            {
+
+                //Convert byte array to little endian int array
+                for (uint i = 0; i < intConvertedMessage.Length; i++)
+                {
+                    uint fullValue = 0;
+
+                    fullValue |= (paddedMessage[(i * 4) + (64 * h)]);
+                    fullValue |= (uint)(paddedMessage[(i * 4) + (64 * h) + 1] << 8);
+                    fullValue |= (uint)(paddedMessage[(i * 4) + (64 * h) + 2] << 16);
+                    fullValue |= (uint)(paddedMessage[(i * 4) + (64 * h) + 3] << 24);
+
+                    intConvertedMessage[i] = fullValue;
+
+                }
+
+
+                uint a1 = a;
+                uint b1 = b;
+                uint c1 = c;
+                uint d1 = d;
+
+                for (uint i = 0; i < 48; i++)
+                {
+                    uint f = 0, g = 0;
+
+                    if ((i >= 0) && (i <= 15))
+                    {
+                        f = ((b1 & c1) | (~b1 & d1));
+                    }
+                    else if ((i >= 16) && (i <= 31))
+                    {
+                        f = ((b1 & c1) | (b1 & d1) | (c1 & d1));
+                    }
+                    else if ((i >= 32) && (i <= 47))
+                    {
+                        f = b1 ^ c1 ^ d1;
+                    }
+
+                    f += a1 + md4Table[i] + intConvertedMessage[md4Indices[i]];
+                    f = rotateLeft(f, (int)md4Shifts[i]);
+
+                    a1 = d1;
+                    d1 = c1;
+                    c1 = b1;
+                    b1 = f;
+
+                }
+
+                a += a1;
+                b += b1;
+                c += c1;
+                d += d1;
+               
+
+            }
+
+
+            return ((reverseEndian(a)).ToString("X8") + (reverseEndian(b)).ToString("X8") + (reverseEndian(c)).ToString("X8") + (reverseEndian(d)).ToString("X8"));
+        }
 
         public static string md5_128Hash(byte[] message)
         {
