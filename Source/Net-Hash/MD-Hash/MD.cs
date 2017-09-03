@@ -193,10 +193,17 @@ namespace MD_Hash
             uint d = 0x10325476;
 
             int oldSize = message.Length;
-            int numNonPaddingCharacters = (message.Length + 8 + 1); //Message Length + 1 to account for 0x80 end character, and + 8 to account for 64 bit file size
-            int paddingAmount = (64 - ((numNonPaddingCharacters) % 64));
 
-            byte[] paddedMessage = new byte[numNonPaddingCharacters + paddingAmount];
+            //Decide padding amount. Padding must always occur, even if length is already divisible by 64.
+            //Space also must be made for an 8 byte message length, and a string terminator character (0x80)
+
+            //If the message length is 9 or more bytes short of 64: Just pad to the nearest multiple of 64
+            //Else: Pad to the nearest multiple 64 and pad another 64 bytes so there is room for the message length
+
+            int paddingAmount = (64 - (message.Length % 64));        //Calculate how many bytes of padding are required to achieve next multiple of 64
+            paddingAmount += (paddingAmount >= 9) ? 0 : 64;          //If less than 9 bytes were padded to the message, add another 64.
+
+            byte[] paddedMessage = new byte[message.Length + paddingAmount];
 
             for (int i = 0; i < message.Length; i++)
             {
