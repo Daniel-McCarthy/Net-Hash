@@ -68,6 +68,7 @@ namespace MD_Hash
         {
             byte[] hashState = new byte[48];
             byte[] checksum = new byte[16];
+            byte[] buffer = new byte[16];
 
             //There must be padding, even if already divisible by 16.
             //Depending on the size of the message there will be between 1-16 bytes of padding.
@@ -82,14 +83,25 @@ namespace MD_Hash
                     paddedMessage[i] = message[i];
                 }
                 else
-                {
-                    //The padding data must be the number of padded bytes
-                    paddedMessage[i] = paddingAmount;
-                }
-            }
 
-            //Calculate hash with padded message
-            calculateMD2(paddedMessage);
+
+            int passes = 0;
+            int messageChunks = paddedMessage.Length / 16;
+
+            //Calculate checksum with padded message, iterate over 16 byte chunks
+            for (int i = 0; i < messageChunks; i++)
+            {
+                //Copy 16 byte chunk into buffer
+                for(int j = 0; j < 16; j++)
+                {
+                    buffer[j] = paddedMessage[j + (passes*16)];
+                }
+
+                //Calculate checksum from buffer
+                calculateMD2(buffer);
+
+                passes++;
+            }
 
             //Recalculate with generated checksum
             calculateMD2(checksum);
