@@ -11,7 +11,7 @@ namespace SHA_Hash
         };
 
 
-        public static string sha1_128Hash(byte[] message)
+        public static string sha1_160Hash(byte[] message)
         {
             uint a = 0x67452301;
             uint b = 0xEFCDAB89;

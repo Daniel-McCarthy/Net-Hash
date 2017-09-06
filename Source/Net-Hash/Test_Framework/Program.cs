@@ -73,7 +73,7 @@ namespace Test_Framework
             Console.WriteLine(MD.md5_128Hash(stringToByteArray("")) + '\n');
 
             Console.WriteLine("Testing SHA1-Hash with string \"HelloKitty\"");
-            Console.WriteLine(SHA.sha1_128Hash(stringToByteArray("HelloKitty")) + '\n');
+            Console.WriteLine(SHA.sha1_160Hash(stringToByteArray("HelloKitty")) + '\n');
 
             /*
              * Timing Tests
@@ -146,12 +146,12 @@ namespace Test_Framework
             Console.WriteLine("MD5 Hash Test2 took : " + timer.ElapsedTicks + " ticks");
 
             timer = Stopwatch.StartNew();
-            SHA.sha1_128Hash(dataTest1);
+            SHA.sha1_160Hash(dataTest1);
             timer.Stop();
             Console.WriteLine("SHA1 Hashtook : " + timer.ElapsedTicks + " ticks");
 
             timer = Stopwatch.StartNew();
-            SHA.sha1_128Hash(dataTest2);
+            SHA.sha1_160Hash(dataTest2);
             timer.Stop();
             Console.WriteLine("SHA1 Hash Test2 took : " + timer.ElapsedTicks + " ticks");
 
