@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace SHA_1_Hash
+namespace SHA_Hash
 {
-    public class SHA1
+    public class SHA
     {
     }
 }
