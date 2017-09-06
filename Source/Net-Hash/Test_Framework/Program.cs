@@ -9,6 +9,7 @@ using FNV_Hash;
 using CRC_Hash;
 using Adler_Hash;
 using MD_Hash;
+using SHA_Hash;
 
 
 namespace Test_Framework

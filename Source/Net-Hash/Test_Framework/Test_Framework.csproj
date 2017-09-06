@@ -47,6 +47,9 @@
     <Reference Include="MD-Hash">
       <HintPath>..\MD-Hash\bin\Debug\netcoreapp1.1\MD-Hash.dll</HintPath>
     </Reference>
+    <Reference Include="SHA-1-Hash">
+      <HintPath>..\SHA-1-Hash\bin\Debug\netcoreapp1.1\SHA-1-Hash.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
