@@ -129,7 +129,7 @@ namespace SHA_Hash
                         f = (b1 ^ c1 ^ d1);
                     }
 
-                    f = f + e1 + sha1Table[i % 21] + intConvertedMessage[(i % 16)] + rotateLeft(a1, 5);
+                    f = f + e1 + sha1Table[i / 20] + intConvertedMessage[(i % 16)] + rotateLeft(a1, 5);
                     b1 = rotateLeft(b1, 30);
 
                     //Swap variables for next calculation
