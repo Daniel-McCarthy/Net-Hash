@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SHA-1-Hash", "SHA-1-Hash\SHA-1-Hash.csproj", "{4D45BEE3-4795-455A-BCCB-C72823E8248D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SHA-Hash", "SHA-1-Hash\SHA-Hash.csproj", "{4D45BEE3-4795-455A-BCCB-C72823E8248D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FNV-Hash", "FNV-1-Hash\FNV-Hash.csproj", "{03C1BACF-3F14-41F0-8CF5-5D10F6BD7907}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Framework", "Test_Framework\Test_Framework.csproj", "{A623A88A-0675-4CC4-A8F7-7A3AF24C567E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRC-Hash", "CRC-Hash\CRC-Hash.csproj", "{EE5090FB-4FC3-4FD9-A208-9248B05D5F0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRC-Hash", "CRC-Hash\CRC-Hash.csproj", "{EE5090FB-4FC3-4FD9-A208-9248B05D5F0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adler-Hash", "Adler-Hash\Adler-Hash.csproj", "{A6F66FFA-AB97-44DA-94C9-2093CA922E35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adler-Hash", "Adler-Hash\Adler-Hash.csproj", "{A6F66FFA-AB97-44DA-94C9-2093CA922E35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MD-Hash", "MD-Hash\MD-Hash.csproj", "{C60B8961-61C1-480E-B970-BA5CEBDA5B9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MD-Hash", "MD-Hash\MD-Hash.csproj", "{C60B8961-61C1-480E-B970-BA5CEBDA5B9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
