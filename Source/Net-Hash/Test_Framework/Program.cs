@@ -72,6 +72,9 @@ namespace Test_Framework
             Console.WriteLine("Testing MD5-Hash with string \"\"");
             Console.WriteLine(MD.md5_128Hash(stringToByteArray("")) + '\n');
 
+            Console.WriteLine("Testing SHA0-Hash with string \"HelloKitty\"");
+            Console.WriteLine(SHA.sha0_160Hash(stringToByteArray("HelloKitty")) + '\n');
+
             Console.WriteLine("Testing SHA1-Hash with string \"HelloKitty\"");
             Console.WriteLine(SHA.sha1_160Hash(stringToByteArray("HelloKitty")) + '\n');
 
