@@ -149,6 +149,16 @@ namespace Test_Framework
             Console.WriteLine("MD5 Hash Test2 took : " + timer.ElapsedTicks + " ticks");
 
             timer = Stopwatch.StartNew();
+            SHA.sha0_160Hash(dataTest1);
+            timer.Stop();
+            Console.WriteLine("SHA0 Hashtook : " + timer.ElapsedTicks + " ticks");
+
+            timer = Stopwatch.StartNew();
+            SHA.sha0_160Hash(dataTest2);
+            timer.Stop();
+            Console.WriteLine("SHA0 Hash Test2 took : " + timer.ElapsedTicks + " ticks");
+
+            timer = Stopwatch.StartNew();
             SHA.sha1_160Hash(dataTest1);
             timer.Stop();
             Console.WriteLine("SHA1 Hashtook : " + timer.ElapsedTicks + " ticks");
