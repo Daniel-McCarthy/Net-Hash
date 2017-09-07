@@ -4,6 +4,10 @@ namespace SHA_Hash
 {
     public class SHA
     {
+        static uint[] sha0Table =
+        {
+            0x5A827999, 0x6ED9EBA1, 0x8F1BBCDC, 0xCA62C1D6
+        };
 
         static uint[] sha1Table =
         {
