@@ -79,7 +79,10 @@ namespace Test_Framework
             Console.WriteLine(SHA.sha1_160Hash(stringToByteArray("HelloKitty")) + '\n');
 
             Console.WriteLine("Testing SHA2-Hash with string \"HelloKitty\"");
-            Console.WriteLine(SHA.sha2_224Hash(stringToByteArray("HelloKitty")) + '\n');
+            Console.WriteLine(SHA.sha2_224Hash(stringToByteArray("HelloKitty")));
+
+            Console.WriteLine("Testing SHA2-Hash with string \"HelloKitty\"x21");
+            Console.WriteLine(SHA.sha2_224Hash(stringToByteArray("HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKitty")) + '\n');
 
             /*
              * Timing Tests
