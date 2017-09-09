@@ -431,6 +431,11 @@ namespace SHA_Hash
                     return (rotateRight(v1, 2) ^ rotateRight(v1, 13) ^ rotateRight(v1, 22));
                 }
 
+                uint calculation4(uint v1)
+                {
+                    return (rotateRight(v1, 6) ^ rotateRight(v1, 11) ^ rotateRight(v1, 25));
+                }
+
 
             }
         }
