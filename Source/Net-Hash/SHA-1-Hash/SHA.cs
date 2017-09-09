@@ -441,6 +441,10 @@ namespace SHA_Hash
                     return (rotateRight(v1, 7) ^ rotateRight(v1, 18) ^ (v1 >> 3));
                 }
 
+                uint calculation6(uint v1)
+                {
+                    return (rotateRight(v1, 17) ^ rotateRight(v1, 19) ^ (v1 >> 10));
+                }
 
             }
         }
