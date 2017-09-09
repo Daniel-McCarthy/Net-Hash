@@ -171,6 +171,11 @@ namespace Test_Framework
             timer.Stop();
             Console.WriteLine("SHA1 Hash Test2 took : " + timer.ElapsedTicks + " ticks");
 
+            timer = Stopwatch.StartNew();
+            SHA.sha2_224Hash(dataTest1);
+            timer.Stop();
+            Console.WriteLine("SHA2 Hashtook : " + timer.ElapsedTicks + " ticks");
+
 
             Console.ReadKey();
            
