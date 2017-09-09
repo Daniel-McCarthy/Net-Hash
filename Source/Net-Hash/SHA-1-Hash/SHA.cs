@@ -416,6 +416,11 @@ namespace SHA_Hash
 
                 return a.ToString("X8") + b.ToString("X8") + c.ToString("X8") + d.ToString("X8") + e.ToString("X8") + f.ToString("X8") + g.ToString("X8");
 
+                uint calculation1(uint v1, uint v2, uint v3)
+                {
+                    return ((v1 & v2) | (v3 & (v1 | v2)));
+                }
+
 
             }
         }
