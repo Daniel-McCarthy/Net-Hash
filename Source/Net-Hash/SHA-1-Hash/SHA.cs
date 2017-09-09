@@ -421,6 +421,11 @@ namespace SHA_Hash
                     return ((v1 & v2) | (v3 & (v1 | v2)));
                 }
 
+                uint calculation2(uint v1, uint v2, uint v3)
+                {
+                    return (v3 ^ (v1 & (v2 ^ v3)));
+                }
+
 
             }
         }
