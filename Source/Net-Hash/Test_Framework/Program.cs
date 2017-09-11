@@ -18,13 +18,56 @@ namespace Test_Framework
     {
         static void Main(string[] args)
         {
-            testAlgorithms();
+            Console.WriteLine("Press 0 to input text to be hashed. Press 1 to run the standard tests.");
+
+            string keyInput = Console.ReadKey().KeyChar.ToString();
+
+            while ((keyInput != "0") && (keyInput != "1"))
+            {
+                keyInput = Console.ReadKey().KeyChar.ToString();
+            }
+
+            if(keyInput == "0")
+            {
+                bool exit = false;
+
+                while (!exit)
+                {
+
+                    Console.WriteLine("\n\n Please enter the text you would like to hash:");
+                    string input = Console.ReadLine();
+
+                    Console.WriteLine("\nOutput:");
+
+                    testCustomInput(input);
+
+
+                    //Check if user wishes to test with custom input again
+                    Console.WriteLine("\n\nPress 0 to input text to be hashed again.");
+                    string keyInput2 = Console.ReadKey().KeyChar.ToString();
+
+                    if(keyInput2 != "0")
+                    {
+                        exit = true;
+                    }
+
+                }
+            }
+            else
+            {
+                testAlgorithms();
+            }
 
             Console.ReadKey();
         }
 
         static void testAlgorithms()
         {
+
+            Console.WriteLine("\n\n");
+            Console.WriteLine("/********************************/");
+            Console.WriteLine("\tPerforming Tests");
+            Console.WriteLine("/********************************/\n");
 
             Console.WriteLine("Testing FNV1-Hash with string \"HelloKitty\"");
             Console.WriteLine(FNV.fnv1_32Hash(stringToByteArray("HelloKitty")));
@@ -190,6 +233,50 @@ namespace Test_Framework
             SHA.sha2_224Hash(dataTest2);
             timer.Stop();
             Console.WriteLine("SHA2 Hash Test2 took : " + timer.ElapsedTicks + " ticks");
+        }
+
+        static void testCustomInput(string input)
+        {
+            Console.WriteLine("Testing FNV1-Hash with string \"" + input + "\"");
+            Console.WriteLine(FNV.fnv1_32Hash(stringToByteArray(input)));
+
+            Console.WriteLine("Testing FNV1A-Hash with string \"" + input + "\"");
+            Console.WriteLine(FNV.fnv1A_32Hash(stringToByteArray(input)));
+
+            Console.WriteLine("Testing FNV0-Hash with string \"" + input + "\"");
+            Console.WriteLine(FNV.fnv0_32Hash(stringToByteArray(input)) + '\n');
+
+
+            Console.WriteLine("Testing CRC-Hash with string \"" + input + "\"");
+            Console.WriteLine(CRC.crc_32Hash(stringToByteArray(input)));
+
+            Console.WriteLine("Testing CRC-Hash with string \"" + input + "\"");
+            Console.WriteLine(CRC.crcB_32Hash(stringToByteArray(input)) + '\n');
+
+
+            Console.WriteLine("Testing Adler-Hash with string \"" + input + "\"");
+            Console.WriteLine(Adler.adler_32Hash(stringToByteArray(input)) + '\n');
+
+
+            Console.WriteLine("Testing MD2-Hash with string \"" + input + "\"");
+            Console.WriteLine(MD.md2_128Hash(stringToByteArray(input)));
+
+            Console.WriteLine("Testing MD4-Hash with string \"" + input + "\"");
+            Console.WriteLine(MD.md4_128Hash(stringToByteArray(input)));
+
+            Console.WriteLine("Testing MD5-Hash with string \"" + input + "\"");
+            Console.WriteLine(MD.md5_128Hash(stringToByteArray(input)));
+
+            Console.WriteLine("Testing SHA0-Hash with string \"" + input + "\"");
+            Console.WriteLine(SHA.sha0_160Hash(stringToByteArray(input)) + '\n');
+
+            Console.WriteLine("Testing SHA1-Hash with string \"" + input + "\"");
+            Console.WriteLine(SHA.sha1_160Hash(stringToByteArray(input)) + '\n');
+
+            Console.WriteLine("Testing SHA2-Hash with string \"" + input + "\"");
+            Console.WriteLine(SHA.sha2_224Hash(stringToByteArray(input)));
+
+
         }
 
         static byte[] stringToByteArray(string message)
