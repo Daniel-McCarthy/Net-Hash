@@ -18,6 +18,13 @@ namespace Test_Framework
     {
         static void Main(string[] args)
         {
+            testAlgorithms();
+
+            Console.ReadKey();
+        }
+
+        static void testAlgorithms()
+        {
 
             Console.WriteLine("Testing FNV1-Hash with string \"HelloKitty\"");
             Console.WriteLine(FNV.fnv1_32Hash(stringToByteArray("HelloKitty")));
@@ -44,7 +51,7 @@ namespace Test_Framework
             Console.WriteLine(MD.md2_128Hash(stringToByteArray("HelloKitty")));
 
             Console.WriteLine("Testing MD2-Hash with string \"HelloKitty\"x21");
-            Console.WriteLine(MD.md2_128Hash(stringToByteArray("HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKitty")) +'\n');
+            Console.WriteLine(MD.md2_128Hash(stringToByteArray("HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKitty")) + '\n');
 
             Console.WriteLine("Testing MD4-Hash with string \"HelloKitty\"");
             Console.WriteLine(MD.md4_128Hash(stringToByteArray("HelloKitty")));
@@ -92,7 +99,7 @@ namespace Test_Framework
             byte[] dataTest2 = stringToByteArray("HelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKittyHelloKitty");
 
             Stopwatch timer;
-            
+
             timer = Stopwatch.StartNew();
             FNV.fnv1_32Hash(dataTest1);
             timer.Stop();
@@ -183,10 +190,6 @@ namespace Test_Framework
             SHA.sha2_224Hash(dataTest2);
             timer.Stop();
             Console.WriteLine("SHA2 Hash Test2 took : " + timer.ElapsedTicks + " ticks");
-
-
-            Console.ReadKey();
-           
         }
 
         static byte[] stringToByteArray(string message)
