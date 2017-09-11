@@ -44,9 +44,9 @@ namespace Test_Framework
 
                     //Check if user wishes to test with custom input again
                     Console.WriteLine("\n\nPress 0 to input text to be hashed again.");
-                    string keyInput2 = Console.ReadKey().KeyChar.ToString();
+                    keyInput = Console.ReadKey().KeyChar.ToString();
 
-                    if(keyInput2 != "0")
+                    if(keyInput != "0")
                     {
                         exit = true;
                     }
