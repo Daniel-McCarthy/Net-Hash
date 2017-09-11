@@ -111,6 +111,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="FNV.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DLLExport.cpp" />
+    <ClCompile Include="FNV.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
