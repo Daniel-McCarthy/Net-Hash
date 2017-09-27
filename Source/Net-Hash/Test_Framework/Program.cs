@@ -82,7 +82,7 @@ namespace Test_Framework
             Console.WriteLine("Testing CRC-Hash with string \"HelloKitty\"");
             Console.WriteLine(CRC.crc_32Hash(stringToByteArray("HelloKitty")));
 
-            Console.WriteLine("Testing CRC-Hash with string \"HelloKitty\"");
+            Console.WriteLine("Testing CRCB-Hash with string \"HelloKitty\"");
             Console.WriteLine(CRC.crcB_32Hash(stringToByteArray("HelloKitty")) + '\n');
 
 
