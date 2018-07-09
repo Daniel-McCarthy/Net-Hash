@@ -11,6 +11,12 @@ namespace Hash_Tests
 {
     public class Hash_Tests
     {
+        [Fact]
+        public void TestAlder32()
+        {
+            Assert.Equal("152D040A", Adler.adler_32Hash(stringToByteArray("HelloKitty")));
+        }
+
 
         static byte[] stringToByteArray(string message)
         {
