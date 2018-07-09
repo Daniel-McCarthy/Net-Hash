@@ -35,6 +35,18 @@ namespace Hash_Tests
             Assert.Equal("2C934346", FNV.fnv1A_32Hash(stringToByteArray("HelloKitty")));
         }
 
+        [Fact]
+        public void TestCRC32()
+        {
+            Assert.Equal("9A133DE9", CRC.crc_32Hash(stringToByteArray("HelloKitty")));
+        }
+
+        [Fact]
+        public void TestCRC32B()
+        {
+            Assert.Equal("129CA114", CRC.crcB_32Hash(stringToByteArray("HelloKitty")));
+        }
+
 
         static byte[] stringToByteArray(string message)
         {
