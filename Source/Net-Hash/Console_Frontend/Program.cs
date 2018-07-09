@@ -61,7 +61,7 @@ namespace Console_Frontend
             Console.WriteLine("Testing CRC-Hash with string \"" + input + "\"");
             Console.WriteLine(CRC.crc_32Hash(stringToByteArray(input)));
 
-            Console.WriteLine("Testing CRC-Hash with string \"" + input + "\"");
+            Console.WriteLine("Testing CRC-B-Hash with string \"" + input + "\"");
             Console.WriteLine(CRC.crcB_32Hash(stringToByteArray(input)) + '\n');
 
             Console.WriteLine("Testing Adler-Hash with string \"" + input + "\"");
