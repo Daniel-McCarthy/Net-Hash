@@ -47,6 +47,24 @@ namespace Hash_Tests
             Assert.Equal("129CA114", CRC.crcB_32Hash(stringToByteArray("HelloKitty")));
         }
 
+        [Fact]
+        public void TestMD2()
+        {
+            Assert.Equal("D35E6E718A891F00659CCD3ADD0259C0", MD.md2_128Hash(stringToByteArray("HelloKitty")));
+        }
+
+        [Fact]
+        public void TestMD4()
+        {
+            Assert.Equal("7865F2C781395A074AC6161AE18059A3", MD.md4_128Hash(stringToByteArray("HelloKitty")));
+        }
+
+        [Fact]
+        public void TestMD5()
+        {
+            Assert.Equal("C2DF5F7D3132A7920E6B245AB1E58625", MD.md5_128Hash(stringToByteArray("HelloKitty")));
+        }
+
 
         static byte[] stringToByteArray(string message)
         {
