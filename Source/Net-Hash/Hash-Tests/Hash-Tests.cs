@@ -66,6 +66,20 @@ namespace Hash_Tests
         }
 
 
+        // TODO: Implement SHA-0 test when a SHA-0 calculation is available.
+
+        [Fact]
+        public void TestSHA1()
+        {
+            Assert.Equal("5AA28664DFAB74BA2D0AD632DF19FC3150333A73", SHA.sha1_160Hash(stringToByteArray("HelloKitty")));
+        }
+
+        [Fact]
+        public void TestSHA2()
+        {
+            Assert.Equal("E735FB8D1ED586E7C5876FFAECBFE9160D1E8C778EE6F4D9B01BF52C", SHA.sha2_224Hash(stringToByteArray("HelloKitty")));
+        }
+
         static byte[] stringToByteArray(string message)
         {
             byte[] returnArray = new byte[message.Length];
