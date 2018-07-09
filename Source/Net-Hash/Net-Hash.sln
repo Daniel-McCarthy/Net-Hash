@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adler-Hash", "Adler-Hash\Ad
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MD-Hash", "MD-Hash\MD-Hash.csproj", "{C60B8961-61C1-480E-B970-BA5CEBDA5B9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hash-Tests", "Hash-Tests\Hash-Tests.csproj", "{0EE657AD-3081-4255-8873-1123CD4F407D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{C60B8961-61C1-480E-B970-BA5CEBDA5B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C60B8961-61C1-480E-B970-BA5CEBDA5B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C60B8961-61C1-480E-B970-BA5CEBDA5B9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EE657AD-3081-4255-8873-1123CD4F407D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EE657AD-3081-4255-8873-1123CD4F407D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EE657AD-3081-4255-8873-1123CD4F407D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EE657AD-3081-4255-8873-1123CD4F407D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
