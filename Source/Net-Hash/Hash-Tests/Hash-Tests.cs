@@ -17,6 +17,24 @@ namespace Hash_Tests
             Assert.Equal("152D040A", Adler.adler_32Hash(stringToByteArray("HelloKitty")));
         }
 
+        [Fact]
+        public void TestFNV0()
+        {
+            Assert.Equal("6077D641", FNV.fnv0_32Hash(stringToByteArray("HelloKitty")));
+        }
+
+        [Fact]
+        public void TestFNV1()
+        {
+            Assert.Equal("8C974AE0", FNV.fnv1_32Hash(stringToByteArray("HelloKitty")));
+        }
+
+        [Fact]
+        public void TestFNV1A()
+        {
+            Assert.Equal("2C934346", FNV.fnv1A_32Hash(stringToByteArray("HelloKitty")));
+        }
+
 
         static byte[] stringToByteArray(string message)
         {
