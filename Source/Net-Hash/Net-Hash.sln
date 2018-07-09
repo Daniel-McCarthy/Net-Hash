@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SHA-Hash", "SHA-1-Hash\SHA-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FNV-Hash", "FNV-1-Hash\FNV-Hash.csproj", "{03C1BACF-3F14-41F0-8CF5-5D10F6BD7907}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Framework", "Test_Framework\Test_Framework.csproj", "{A623A88A-0675-4CC4-A8F7-7A3AF24C567E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console_Frontend", "Console_Frontend\Console_Frontend.csproj", "{A623A88A-0675-4CC4-A8F7-7A3AF24C567E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRC-Hash", "CRC-Hash\CRC-Hash.csproj", "{EE5090FB-4FC3-4FD9-A208-9248B05D5F0F}"
 EndProject
